@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlinkAlert - Task Scheduler</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>BlinkAlert</h1>
+            <div class="user-profile">
+                <img src="/image/WhatsApp Image 2024-11-05 at 7.12.16 PM.jpeg" alt="User Avatar" id="user-avatar">
+                <span id="user-name">Piyush Joshi</span>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+            </button>
+        </header>
+        <nav>
+            <button id="all-tasks">All Tasks</button>
+            <button id="today-tasks">Today</button>
+            <button id="upcoming-tasks">Upcoming</button>
+            <button id="completed-tasks">Completed</button>
+            <button id="export-tasks">Export Tasks</button>
+            <button id="import-tasks">Import Tasks</button>
+        </nav>
+        <main>
+            <div class="dashboard-container"></div>
+            <div class="task-list-container">
+                <div class="task-list-header">
+                    <h2>Tasks</h2>
+                    <div class="task-controls">
+                        <input type="text" id="search-tasks" placeholder="Search tasks..." aria-label="Search tasks">
+                        <select id="sort-tasks" aria-label="Sort tasks">
+                            <option value="date">Sort by Date</option>
+                            <option value="priority">Sort by Priority</option>
+                            <option value="category">Sort by Category</option>
+                        </select>
+                    </div>
+                </div>
+                <ul id="task-list" role="list"></ul>
+            </div>
+            <div class="task-details">
+                <h3>Task Details</h3>
+                <div id="task-details-content" role="region" aria-live="polite"></div>
+            </div>
+        </main>
+        <button id="add-task-btn" class="floating-btn" aria-label="Add new task">+</button>
+    </div>
+
+    <div id="add-task-modal" class="modal">
+        <div class="modal-content">
+            <h2>Add New Task</h2>
+            <form id="add-task-form">
+                <input type="text" id="task-title" placeholder="Task Title" required aria-label="Task title">
+                <textarea id="task-description" placeholder="Task Description" aria-label="Task description"></textarea>
+                <input type="datetime-local" id="task-datetime" required aria-label="Task date and time">
+                <select id="task-category" aria-label="Task category">
+                    <option value="personal">Personal</option>
+                    <option value="work">Work</option>
+                    <option value="health">Health</option>
+                    <option value="education">Education</option>
+                    <option value="finance">Finance</option>
+                </select>
+                <select id="task-priority" aria-label="Task priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <select id="task-recurrence" aria-label="Task recurrence">
+                    <option value="none">No recurrence</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="yearly">Yearly</option>
+                </select>
+                <button type="submit">Add Task</button>
+                <button type="button" id="close-modal">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+    <input type="file" id="import-file" accept=".txt" style="display: none;">
+
+    <script src="script.js"></script>
+</body>
+</html>
